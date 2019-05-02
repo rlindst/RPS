@@ -1,5 +1,7 @@
+document.addEventListener("DOMContentLoaded", function(){ 
+
 let userScore = 0;
-let computerScore 0;
+let computerScore = 0;
 const userScore_span = document.getElementById('user-score');
 const computerScore_span = document.getElementById('computer-score');
 const scoreBoard_div = document.querySelector(".score-board");
@@ -15,7 +17,7 @@ function getComputerChoice() {
 	return choices [randomNUmber];
 }
 
-functon convertToWord(letter){
+function convertToWord(letter){
 	if (letter === "r") return "Rock";
 	if (letter === "p") return "Paper";
 	return "Scissors";
@@ -26,7 +28,7 @@ function win(userChoice, computerChoice) {
 	userScore++;
 	userScore_span.innerHTML = userScore;
 	computerScore_span.innerHTML = computerScore;
-	result_p.innerHTML = userChoice + "beats" + computerChoice + ". You Win!";
+	result_p.innerHTML = userChoice + " beats " + computerChoice + ". You Win!";
 }
 
 function lose() {
@@ -39,31 +41,32 @@ function draw() {
 
 
 function game(userChoice) {
-  const computerChoice = getComputerChoice
+  const computerChoice = getComputerChoice();
+  debugger;
   switch(userChoice + computerChoice) {
-  	case "pr";
-  	case "sp";
-  	case "rs";
-  		win();
+  	case "pr":
+  	case "sp":
+  	case "rs":
+  		win(userChoice, computerChoice);
   		break;
-  	case "rp";
-  	case "ps";
-  	case "sr";
-  		lose();
+  	case "rp":
+  	case "ps":
+  	case "sr":
+  		lose(userChoice, computerChoice);
   		break;
-  	case "rr"
-  	case "pp";
-  	case "ss";
-  		draw();
+  	case "rr":
+  	case "pp":
+  	case "ss":
+  		draw(userChoice, computerChoice);
 
   }
 }
 
 
 function main() {
-	rock_div.addEventListener('click', function() {
+	rock_div.addEventListener('click', function(){
 	    game("r");
-
+	})
 
 	paper_div.addEventListener('click', function() {
 		game("p");
@@ -75,3 +78,8 @@ function main() {
 }
 
 main();
+
+ });
+
+
+
