@@ -42,7 +42,6 @@ function draw() {
 
 function game(userChoice) {
   const computerChoice = getComputerChoice();
-  debugger;
   switch(userChoice + computerChoice) {
   	case "pr":
   	case "sp":
