@@ -28,15 +28,24 @@ function win(userChoice, computerChoice) {
 	userScore++;
 	userScore_span.innerHTML = userScore;
 	computerScore_span.innerHTML = computerScore;
-	result_p.innerHTML = userChoice + " beats " + computerChoice + ". You Win!";
+	result_p.innerHTML = convertToWord(userChoice) + " beats " + convertToWord(computerChoice) + ". You Win!";
+	document.getElementById(userChoice).classList.add("green-glow");
+	setTimeout(function() { document.getElementById(userChoice).classList.remove("green-glow")}, 1000);
 }
 
-function lose() {
-	
+function lose(userChoice, computerChoice) {
+	computerScore++;
+	userScore_span.innerHTML = userScore;
+	computerScore_span.innerHTML = computerScore;
+	result_p.innerHTML = convertToWord(userChoice) + " loses to " + convertToWord(computerChoice) + ". You Lost";
+	document.getElementById(userChoice).classList.add("red-glow");
+	setTimeout(function() { document.getElementById(userChoice).classList.remove("red-glow")}, 1000);
 }
 
-function draw() {
-	console.log("DRAW");
+function draw(userChoice, computerChoice) {
+	result_p.innerHTML = convertToWord(userChoice) + " equals " + convertToWord(computerChoice) + ". Its a draw";
+	document.getElementById(userChoice).classList.add("gray-glow");
+	setTimeout(function() { document.getElementById(userChoice).classList.remove("gray-glow")}, 1000);
 }
 
 
